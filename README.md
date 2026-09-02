@@ -47,34 +47,49 @@ Topology Design
 
 **Redundancy Design**
 
-1. Dual Core Switches
+**1. Dual Core Switches**
+
 Two multilayer core switches are deployed instead of one.
 
 
+
 If one core switch fails, the second core switch can continue forwarding traffic.
-2. Dual Connections to Edge-R1
+
+**Dual Connections to Edge-R1**
+
 Both core switches have independent Layer 3 transit connections to the Edge Router.
-Core-SW1 -------- Edge-R1
-Core-SW2 -------- Edge-R1
+
+![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/982f7650-f774-4588-8f72-6f40ca8f235e.jpg)
+
 This removes the single core-to-edge path dependency.
-3. Core-to-Core Layer 3 EtherChannel
+**3. Core-to-Core Layer 3 EtherChannel**
+ ![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/1a5feb3a-c812-4158-a204-403423d8bc4d.jpg)
 Core-SW1 and Core-SW2 use a Layer 3 LACP EtherChannel as their high-speed cross-link.
+
 Core-SW1
-   ║
-   ║  L3 EtherChannel
-   ║  LACP
-   ║
+ 
 Core-SW2
-The logical Port-Channel provides:
+
+**The logical Port-Channel provides:**
+
 Link aggregation
+
 Redundancy
+
 Higher available bandwidth
+
 Fast communication between the core switches
+
 LACP mode: active
-Note: mode active is an LACP negotiation mode. mode on is a static EtherChannel and is not LACP.
-4. Layer 2 LACP to Access Switch
+
+**Note: mode active is an LACP negotiation mode. mode on is a static EtherChannel and is not LACP.**
+
+**4. Layer 2 LACP to Access Switch**
+![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/5234f6b1-0016-4dea-b2c5-903afde6d681.jpg)
+
 Acc-SW1 has redundant Layer 2 connections to both core switches.
-Core-SW1 ═════ Acc-SW1
-Core-SW2 ═════ Acc-SW1
+
+
 These are configured as Layer 2 trunk EtherChannels using LACP.
+
 LACP mode: active
