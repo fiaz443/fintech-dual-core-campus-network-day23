@@ -28,3 +28,5 @@ VLAN 10 – Operations
 VLAN 20 – Developers
 VLAN 99 – Management
 Topology Design
+![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/1ccceb09-ceeb-4091-aeb6-69c78449fd1b.jpg)
+
