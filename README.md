@@ -79,7 +79,7 @@ If one core switch fails, the second core switch can continue forwarding traffic
 
 ![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/40f2be03-8a5e-48ff-acf8-7efd6c97e868.jpg)
 
-**Dual Connections to Edge-R1**
+**2. Dual Connections to Edge-R1**
 
 Both core switches have independent Layer 3 transit connections to the Edge Router.
 
@@ -179,5 +179,27 @@ Routing-path failure
 After completing the configuration, verify:
 
 ![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/5d55cae8-76de-4a4b-bfcd-70f7dc4f58c8.jpg)
+
+**Project Outcome**
+This project demonstrates a resilient enterprise network architecture that combines:
+
+**VLAN Segmentation + Layer 3 Switching + LACP + MHSRP/HSRP + OSPF + Dual-Core Redundancy**
+
+The result is a network designed for:
+
+High availability
+
+Gateway redundancy
+
+Active-active load sharing
+
+Link redundancy
+
+
+Dynamic routing
+
+Scalability
+
+Better business continuity
 
 
