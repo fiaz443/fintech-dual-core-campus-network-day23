@@ -75,11 +75,9 @@ Topology Design
 
 Two multilayer core switches are deployed instead of one.
 
-https://github.com/fiaz443/fintech-dual-core-campus-network-day23/blob/main/40f2be03-8a5e-48ff-acf8-7efd6c97e868.jpg
-
-
-
 If one core switch fails, the second core switch can continue forwarding traffic.
+
+![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/40f2be03-8a5e-48ff-acf8-7efd6c97e868.jpg)
 
 **Dual Connections to Edge-R1**
 
