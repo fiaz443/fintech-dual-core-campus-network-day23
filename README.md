@@ -1,17 +1,32 @@
 **# fintech-dual-core-campus-network-day23**
 
 FinTech Corporate Campus Network – Dual-Core Redundancy, MHSRP, LACP EtherChannel, OSPF, VLAN Segmentation and Load Sharing | Cisco Packet Tracer
-Project Overview
+
+**Project Overview**
 
 This project demonstrates a FinTech Corporate Campus Network designed in Cisco Packet Tracer with a focus on high availability, gateway redundancy, load sharing, Layer 3 routing, VLAN segmentation, and link aggregation.
 The design addresses a real-world business requirement where a single core-switch failure must not bring down the entire office network.
 
-Lab
+** Lab Information**
+**Project:**
+FinTech Corporate Campus
+
+**Lab:** Day 23
+**Scenario:** Dual-Core Redundancy & Load Balancing
+**Platform:** Cisco Packet Tracer
+**Core:** Cisco 3560 Multilayer Switches
+**Access:** Cisco 2960
+**Edge:** Cisco 2811/2911 Router
+**Routing Protocol:** OSPF Area 0
+**Gateway Redundancy:** MHSRP / HSRP
+**Link Aggregation:** LACP EtherChannel
+
 **Day 23 – FinTech Corporate Campus: Dual-Core Redundancy & Load Balancing**
 
 **🎯 Client Requirement:**
 
-The client, Mr. Tariq – Head of FinTech Operations, required:
+**The client, Mr. Tariq – Head of FinTech Operations, required:**
+
 Complete core-switch redundancy
 Gateway redundancy
 Active-Active load sharing
@@ -51,27 +66,27 @@ Topology Design
 
 Two multilayer core switches are deployed instead of one.
 
+https://github.com/fiaz443/fintech-dual-core-campus-network-day23/blob/main/40f2be03-8a5e-48ff-acf8-7efd6c97e868.jpg
+
 
 
 If one core switch fails, the second core switch can continue forwarding traffic.
 
 **Dual Connections to Edge-R1**
 
-![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/982f7650-f774-4588-8f72-6f40ca8f235e.jpg)
-
 Both core switches have independent Layer 3 transit connections to the Edge Router.
 
 This removes the single core-to-edge path dependency.
 
+![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/982f7650-f774-4588-8f72-6f40ca8f235e.jpg)
+
+
 **3. Core-to-Core Layer 3 EtherChannel**
- ![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/1a5feb3a-c812-4158-a204-403423d8bc4d.jpg)
- 
+
 Core-SW1 and Core-SW2 use a Layer 3 LACP EtherChannel as their high-speed cross-link.
 
-Core-SW1
+ ![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/1a5feb3a-c812-4158-a204-403423d8bc4d.jpg)
  
-Core-SW2
-
 **The logical Port-Channel provides:**
 
 Link aggregation
@@ -88,157 +103,74 @@ LACP mode: active
 
 **4. Layer 2 LACP to Access Switch**
 
-![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/5234f6b1-0016-4dea-b2c5-903afde6d681.jpg)
-
 Acc-SW1 has redundant Layer 2 connections to both core switches.
 
+![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/5234f6b1-0016-4dea-b2c5-903afde6d681.jpg)
 
 These are configured as Layer 2 trunk EtherChannels using LACP.
 
 LACP mode: active
 
- IP Addressing Scheme
-Network
-Purpose
-Subnet
-VLAN 10
-Operations
-10.10.10.0/24
-VLAN 20
-Developers
-10.10.20.0/24
-VLAN 99
-Management
-10.10.99.0/24
-Core-SW1 ↔️ Edge-R1
-Primary Transit
-10.10.0.0/30
-Core-SW2 ↔️ Edge-R1
-Secondary Transit
-10.10.0.4/30
-Core-SW1 ↔️ Core-SW2
-L3 Cross-Link
-10.10.0.8/30
-Virtual Gateway Addresses
-VLAN
-Virtual Gateway
-VLAN 10
-10.10.10.1
-VLAN 20
-10.10.20.1
-VLAN 99
-10.10.99.1
-🏷️ VLAN Plan
-VLAN ID
-VLAN Name
-Network
-Purpose
-10
-Operations
-10.10.10.0/24
-Core Business Users
-20
-Developers
-10.10.20.0/24
-Software & DevOps Team
-99
-Management
-10.10.99.0/24
-Network & IT Management
-🔁 MHSRP / HSRP Active-Active Load Sharing
-Multiple HSRP groups are used so that both core switches can participate in forwarding traffic.
-VLAN 10
-Virtual Gateway: 10.10.10.1
-Active:          Core-SW1
-Standby:         Core-SW2
-VLAN 20
-Virtual Gateway: 10.10.20.1
-Active:          Core-SW2
-Standby:         Core-SW1
-This provides active-active gateway utilization across the VLANs.
-If Core-SW1 fails, Core-SW2 can take over VLAN 10.
-If Core-SW2 fails, Core-SW1 can take over VLAN 20.
-🚀 OSPF Dynamic Routing
-OSPF Area 0 is used for dynamic Layer 3 routing between the core switches and Edge-R1.
-OSPF provides:
-Dynamic route exchange
-Automatic route learning
-Redundant paths
-Fast convergence
-Scalable routing
-Reduced manual static-route configuration
-Useful OSPF Verification
-show ip ospf neighbor
-show ip route
-show ip ospf interface
-🔗 EtherChannel / LACP Design
-Connection
-Layer
-Technology
-Recommended Mode
-Core-SW1 ↔️ Core-SW2
-Layer 3
-LACP EtherChannel
-active
-Core-SW1 ↔️ Acc-SW1
-Layer 2
-LACP EtherChannel
-active
-Core-SW2 ↔️ Acc-SW1
-Layer 2
-LACP EtherChannel
-active
-Verification
-show etherchannel summary
-show interfaces port-channel
-show interfaces trunk
-🔐 Security & Availability Benefits
-VLAN Segmentation
+ **IP Addressing Scheme**
+
+![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/59f2d3eb-ac51-445f-9df7-443220fe32e5.jpg)
+
+
+**🔐 Security & Availability Benefits**
+
+**VLAN Segmentation**
+
 Different departments are logically separated using VLANs.
+
 Benefits:
+
 Reduced broadcast domains
+
 Better traffic organization
+
 Improved access control
+
 Easier policy implementation
-High Availability
+
+**High Availability**
+
 Redundancy is provided through:
+
 Dual multilayer core switches
+
 Dual core-to-edge links
+
 LACP EtherChannel
+
 MHSRP/HSRP
+
 OSPF dynamic routing
-Business Continuity
+
+**Business Continuity**
+
 The design reduces the impact of:
+
 Core-switch failure
+
 Individual link failure
+
 Gateway failure
+
 Routing-path failure
-🔄 Traffic Flow
-Normal VLAN 10 traffic:
-PC – VLAN 10
-      ↓
-Acc-SW1
-      ↓
-L2 LACP EtherChannel
-      ↓
-Core-SW1
-      ↓
-OSPF
-      ↓
-Edge-R1
-      ↓
-External Network / Cloud
-Normal VLAN 20 traffic:
-PC – VLAN 20
-      ↓
-Acc-SW1
-      ↓
-L2 LACP EtherChannel
-      ↓
-Core-SW2
-      ↓
-OSPF
-      ↓
-Edge-R1
-      ↓
-External Network / Cloud
+
+**🔄 Traffic Flow**
+
+**Normal VLAN 10 traffic:**
+
+![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/8db22d8f-a47b-4c12-b59b-f8d3ebeb2b54.jpg)
+
+**Normal VLAN 20 traffic:**
+
+![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/76f8a5b9-bd86-477b-99d7-bab8fa48be4e.jpg)
+
+ Verification Checklist
+After completing the configuration, verify:
+
+![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/5d55cae8-76de-4a4b-bfcd-70f7dc4f58c8.jpg)
+
+
