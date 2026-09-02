@@ -7,18 +7,27 @@ FinTech Corporate Campus Network – Dual-Core Redundancy, MHSRP, LACP EtherChan
 This project demonstrates a FinTech Corporate Campus Network designed in Cisco Packet Tracer with a focus on high availability, gateway redundancy, load sharing, Layer 3 routing, VLAN segmentation, and link aggregation.
 The design addresses a real-world business requirement where a single core-switch failure must not bring down the entire office network.
 
-** Lab Information**
+**Lab Information**
+
 **Project:**
 FinTech Corporate Campus
 
 **Lab:** Day 23
+
 **Scenario:** Dual-Core Redundancy & Load Balancing
+
 **Platform:** Cisco Packet Tracer
+
 **Core:** Cisco 3560 Multilayer Switches
+
 **Access:** Cisco 2960
+
 **Edge:** Cisco 2811/2911 Router
+
 **Routing Protocol:** OSPF Area 0
+
 **Gateway Redundancy:** MHSRP / HSRP
+
 **Link Aggregation:** LACP EtherChannel
 
 **Day 23 – FinTech Corporate Campus: Dual-Core Redundancy & Load Balancing**
