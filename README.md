@@ -180,7 +180,8 @@ After completing the configuration, verify:
 
 ![Network Topology](https://raw.githubusercontent.com/fiaz443/fintech-dual-core-campus-network-day23/main/5d55cae8-76de-4a4b-bfcd-70f7dc4f58c8.jpg)
 
-**Project Outcome**
+**Project Outcome:**
+
 This project demonstrates a resilient enterprise network architecture that combines:
 
 **VLAN Segmentation + Layer 3 Switching + LACP + MHSRP/HSRP + OSPF + Dual-Core Redundancy**
